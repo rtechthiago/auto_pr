@@ -1,7 +1,7 @@
 name: Auto Create PR on Branch Creation
 
 on:
-  create:
+  push:
     branches:
       - "CHG*"
 
