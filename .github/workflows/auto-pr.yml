@@ -21,4 +21,4 @@ jobs:
           base: main  # A branch de destino da PR, ajuste conforme necessário
           title: "Auto PR - Branch ${{ github.ref_name }}"
           body: "Essa PR foi criada automaticamente para a branch ${{ github.ref_name }}"
-          draft: false  # Defina como 'true' se quiser criar a PR como rascunho
+          draft: false  # Defina como 'true' se quiser criar a PR como rascunho.........................
