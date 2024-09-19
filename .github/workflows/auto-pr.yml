@@ -3,7 +3,7 @@ name: Auto Create PR on Branch Creation
 on:
   push:
     branches:
-      - "CHG*"
+      - "CGH*"
 
 jobs:
   create-pr:
