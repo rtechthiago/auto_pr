@@ -1,0 +1,24 @@
+name: Auto Create PR on Branch Creation
+
+on:
+  create:
+    branches:
+      - "CHG*"
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create PR para main
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref_name }}  # A branch recém-criada
+          base: main  # A branch de destino da PR, ajuste conforme necessário
+          title: "Auto PR - Branch ${{ github.ref_name }}"
+          body: "Essa PR foi criada automaticamente para a branch ${{ github.ref_name }}"
+          draft: false  # Defina como 'true' se quiser criar a PR como rascunho.
