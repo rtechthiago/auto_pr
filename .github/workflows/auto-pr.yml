@@ -16,7 +16,6 @@ jobs:
       - name: Create Pull Request
         uses: actions/github-script@v7
         with:
-          github-token: ${{ secrets.GLOBAL_SSH }}
           script: |
             const branchName = process.env.GITHUB_REF.split('/').pop();
             const { data: pullRequest } = await github.pulls.create({
