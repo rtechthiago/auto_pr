@@ -1,9 +1,9 @@
 name: Auto Create PR on Branch Creation
 
 on:
-  create:
+  push:
     branches:
-      - "CHG*"
+      - "CGH*"
 
 jobs:
   create-pr:
@@ -13,12 +13,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Create PR para main
-        uses: peter-evans/create-pull-request@v5
+      - name: Create Pull Request
+        uses: actions/github-script@v6
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref_name }}  # A branch recém-criada
-          base: main  # A branch de destino da PR, ajuste conforme necessário
-          title: "Auto PR - Branch ${{ github.ref_name }}"
-          body: "Essa PR foi criada automaticamente para a branch ${{ github.ref_name }}"
-          draft: false  # Defina como 'true' se quiser criar a PR como rascunho.
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const branchName = process.env.GITHUB_REF.split('/').pop();
+            const { data: pullRequest } = await github.pulls.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Auto PR for branch ${branchName}`,
+              head: branchName,
+              base: 'main',  # Ajuste a branch base conforme necessário
+              body: `Esse Pull Request foi criado automaticamente para a branch ${branchName}`,
+              draft: false
+            });
+            console.log(`Created PR: ${pullRequest.html_url}`);
