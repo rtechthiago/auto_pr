@@ -19,7 +19,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: main # A branch recém-criada
           author: ${{ github.actor }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>
-          base: CGH-123123  # A branch de destino da PR, ajuste conforme necessário
+          base: CGH-112233  # A branch de destino da PR, ajuste conforme necessário
           title: "Auto PR - Branch ${{ github.ref_name }}"
           body: "Essa PR foi criada automaticamente para a branch ${{ github.ref_name }}"
           draft: false  # Defina como 'true' se quiser criar a PR como rascunho.........................
