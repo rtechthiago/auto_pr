@@ -6,7 +6,7 @@ token = os.getenv("GITHUB_TOKEN")  # Pode ser passado como variável de ambiente
 g = Github(token)
 
 # Informações necessárias
-repo_name = "rtechthiago0/auto_pr"  # Nome do repositório
+repo_name = "rtechthiago/auto_pr"  # Nome do repositório
 source_branch = "CGH-112233"
 target_branch = "main"
 titulo_pr = "CGH-112233"
