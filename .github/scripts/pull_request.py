@@ -5,11 +5,11 @@ token = "GITHUB_TOKEN"  # Pode ser passado como variável de ambiente no GitHub 
 g = Github(token)
 
 # Informações necessárias
-repo_name = "owner/repo_name"  # Nome do repositório
-source_branch = "branch-de-alteracoes"
+repo_name = "rtechthiago0/auto_pr"  # Nome do repositório
+source_branch = "CGH-112233"
 target_branch = "main"
-titulo_pr = "Minha nova Pull Request"
-descricao_pr = "Essa PR contém as alterações XYZ."
+titulo_pr = "CGH-112233"
+descricao_pr = "PR criada automaticamente."
 
 # Conectar ao repositório
 repo = g.get_repo(repo_name)
