@@ -1,7 +1,8 @@
 from github import Github
+import os
 
 # Autenticação via token de acesso pessoal
-token = "GITHUB_TOKEN"  # Pode ser passado como variável de ambiente no GitHub Actions
+token = os.getenv("GITHUB_TOKEN")  # Pode ser passado como variável de ambiente no GitHub Actions
 g = Github(token)
 
 # Informações necessárias
