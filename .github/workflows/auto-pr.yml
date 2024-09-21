@@ -3,7 +3,7 @@ name: Criar Pull Request
 on:
   push:
     branches:
-      - branch-de-alteracoes  # Substitua pela branch que deseja monitorar
+      - CGH-112233  # Substitua pela branch que deseja monitorar
 
 jobs:
   create-pr:
