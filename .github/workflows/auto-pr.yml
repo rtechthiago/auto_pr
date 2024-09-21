@@ -25,5 +25,7 @@ jobs:
     - name: Criar Pull Request
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_REPO: ${{ github.repository }}
+        GITHUB_BRANCH: ${{ github.ref_name }}
       run: |
         python .github/scripts/pull_request.py

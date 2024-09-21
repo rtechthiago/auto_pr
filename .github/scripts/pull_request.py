@@ -3,13 +3,15 @@ import os
 
 # Autenticação via token de acesso pessoal
 token = os.getenv("GITHUB_TOKEN")  # Pode ser passado como variável de ambiente no GitHub Actions
+branch = os.getenv("GITHUB_BRANCH")
+
 g = Github(token)
 
 # Informações necessárias
-repo_name = "rtechthiago/auto_pr"  # Nome do repositório
-source_branch = "CGH-112233"
+repo_name = os.getenv("GITHUB_REPO")  # Nome do repositório
+source_branch = branch
 target_branch = "main"
-titulo_pr = "CGH-112233"
+titulo_pr = branch
 descricao_pr = "PR criada automaticamente."
 
 # Conectar ao repositório
