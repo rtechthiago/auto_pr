@@ -1,9 +1,8 @@
 name: Criar Pull Request
 
 on:
-  push:
-    branches:
-      - CGH-112233  # Substitua pela branch que deseja monitorar
+  issue_comment:
+    types: [created]
 
 jobs:
   create-pr:
