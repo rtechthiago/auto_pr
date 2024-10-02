@@ -25,7 +25,7 @@ jobs:
 
     - name: Run Python script to create GitHub issue
       run: |
-        python scripts/issue.py
+        python .github/scripts/issue.py
       env:
         GITHUB_REPOSITORY: ${{ github.repository }}  # Define o repositório atual
         ISSUE_TITLE: "Automated Issue using PyGithub"  # Título da issue
