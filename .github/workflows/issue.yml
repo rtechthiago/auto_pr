@@ -31,3 +31,27 @@ jobs:
         ISSUE_TITLE: "Automated Issue using PyGithub"  # Título da issue
         ISSUE_BODY: "This issue was created by a GitHub Actions workflow using PyGithub."  # Corpo da issue
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Token de autenticação do GitHub
+
+  verificar_issue:
+    runs-on: ubuntu-latest
+    needs: create-issue
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pygithub requests
+
+      - name: Run script to check issue options
+        env:
+          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python .github/scripts/pull_request.py

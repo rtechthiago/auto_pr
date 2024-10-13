@@ -11,7 +11,14 @@ def create_github_issue(repo_name, issue_title, issue_body, token):
     # Criar uma nova issue
     issue = repo.create_issue(
         title=issue_title,
-        body=issue_body
+        body=issue_body,
+        issue_body = """
+        Descrição da Issue.
+        Por favor, selecione uma das seguintes opções para prosseguir:
+        - [ ] Opção 1
+        - [ ] Opção 2
+        - [ ] Opção 3
+        """
     )
 
     print(f"Issue criada com sucesso: {issue.html_url}")
