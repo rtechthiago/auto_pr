@@ -57,3 +57,5 @@ jobs:
           GITHUB_BRANCH: ${{ github.ref_name }}
         run: |
           python .github/scripts/pull_request.py
+    
+    if: success() || failure()
